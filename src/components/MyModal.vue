@@ -13,7 +13,7 @@ const dialogRef = ref(null);
 
 const syncDialog = (open) => {
   const dialog = dialogRef.value;
-  if (!dialog) return;
+  // if (!dialog) return;
   // open ? dialog.showModal() : dialog.close();
   if (open) {
     if (!dialog.open) dialog.showModal();
@@ -26,8 +26,8 @@ watch(
   () => props.isOpen,
   (newVal) => {
     syncDialog(newVal);
-  },
-  { immediate: true, flush: "post" }
+  }
+  // { immediate: true, flush: "post" }
 );
 
 const close = () => emit("close", false);
